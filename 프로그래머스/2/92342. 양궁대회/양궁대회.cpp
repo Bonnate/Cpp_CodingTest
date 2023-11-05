@@ -21,15 +21,18 @@ void DFS(int l, int n, vector<int> info) {
 		// 점수가 같을때, 더 낮은 점수를 맞추면 갱신
 		if (maxScore <= score && score > 0)
 		{
+			// 점수가 갱신되는경우에는 바로 변경
 			if (maxScore != score)
 			{
 				answer = arr;
 				maxScore = score;
 			}
+			// 같은 점수일경우, 가장 낮은 점수를 맞추는 조건을 검사
 			else
 			{
 				for (int i = info.size() - 1; i >= 0; --i)
 				{
+					// 서로 값이 다를때, answer의 값이 더 크다면, 변경해서는 안됨(낮은 점수를 많이 맞춘것)
 					if (arr[i] != answer[i])
 						if (answer[i] > arr[i])
 							return;
@@ -56,6 +59,5 @@ void DFS(int l, int n, vector<int> info) {
 
 vector<int> solution(int n, vector<int> info) {
 	DFS(0, n, info);
-
 	return answer;
 }
