@@ -1,36 +1,27 @@
 #include <string>
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 int solution(vector<int> priorities, int location) {
-    
     int answer = 0;
-    int lastIdx = 0;
-    for(int i = 9; i >= 0; --i)
+    
+    int max = *max_element(priorities.begin(), priorities.end());
+    
+    while(true)
     {
-        int last = lastIdx;
-        
-        for(int j = 0; j < priorities.size(); ++j)
-        {
-            int idx = j + lastIdx;
-            while(idx >= priorities.size())
-                idx -= priorities.size();
-            
-            if(priorities[idx] == i)
+        for(int i = 0; i < priorities.size(); ++i)
+            if(priorities[i] == max)
             {
                 ++answer;
-                
-                if(idx == location)
-                    return answer;    
-                
-                last = idx;
+                priorities[i] = -1;
+                max = *max_element(priorities.begin(), priorities.end());
+
+                if(i == location)    
+                    return answer;
             }
-        }
-        
-        lastIdx = last;
     }
     
-    return 0;
+    return answer;
 }
