@@ -1,42 +1,36 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
 
 int solution(int bridge_length, int weight, vector<int> truck_weights) {
-    int answer = 0;
-    int n = truck_weights.size();
-    
-    vector<int> v(bridge_length + 1, 0);
+    queue<pair<int, int>> q;
     int sum = 0;
     int idx = 0;
+    int time = 0;
+    int n = truck_weights.size();
     
     while(idx < n)
     {
-        // 왼쪽으로 한칸씩 이동
-        rotate(v.rbegin(), v.rbegin() + 1, v.rend());
+        if(!q.empty() && time >= q.front().second)
+        {
+            sum -= q.front().first;
+            int answer = q.front().second;
+            q.pop();
+        }
         
-		// 마지막에 있는 트럭을 내보내기
-		sum -= v[bridge_length]; // 마지막에 있는 트럭의 무게를 빼기
-		v[bridge_length] = 0; // 해당 값은 0으로 설정        
+        if(sum + truck_weights[idx] <= weight)
+        {
+            q.push({truck_weights[idx], time + bridge_length});
+            sum += truck_weights[idx++];
+        }
         
-		// 트랙 보내기 시도
-		if (sum + truck_weights[idx] <= weight)
-		{
-			v[0] = truck_weights[idx++];
-			sum += v[0];
-		}
-
-		++answer;
+        ++time;
     }
     
-    for(int i = 0; i < bridge_length; ++i)
-        if(v[i])
-        {
-            answer += bridge_length - i;
-            break;
-        }
-    
-    return answer;
+    while(q.size() != 1)
+        q.pop();
+    return q.front().second + 1;
 }
