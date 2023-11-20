@@ -1,10 +1,10 @@
 # [level 2] 단체사진 찍기 - 1835 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/1835) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/1835#qna) 
 
 ### 성능 요약
 
-메모리: 4.04 MB, 시간: 4530.89 ms
+메모리: 4.11 MB, 시간: 4611.58 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 1일 19:1:7
+2023년 11월 1일 19:19:49
 
 ### 문제 설명
 

@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -83,12 +83,22 @@ void DFS(int n, vector<string>& data)
 // 전역 변수를 정의할 경우 함수 내에 초기화 코드를 꼭 작성해주세요.
 int solution(int n, vector<string> data) {
     
-    characters = {'A', 'C', 'F', 'J', 'M', 'N', 'R', 'T'};
+    characters = "ACFJMNRT";
     ch = vector<bool>(8, false);
     sel = vector<int>(8, -1);
     answer = 0;
     cnt = 8;
-    DFS(0, data);
+    
+    do
+    {
+        map<char, int> m;
+        for(int i = 0; i < cnt; ++i)
+            m[characters[i]] = i;
+        
+        if(checkValid(data, m))
+            ++answer;
+        
+    }while(next_permutation(characters.begin(), characters.end()));
     
     return answer;
 }
