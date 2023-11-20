@@ -6,6 +6,7 @@ using namespace std;
 int solution(vector<vector<int>> board)
 {
     int answer = 0;
+    bool isZero = true;
 
     if(board.size() == 1 || board[0].size() == 1)
     {
@@ -37,5 +38,5 @@ int solution(vector<vector<int>> board)
         }
     }
     
-    return answer;
+    return max({answer, board[0][0], board[0][1], board[1][0]});
 }
