@@ -39,10 +39,7 @@ vector<int> solution(int n, vector<vector<int>> roads, vector<int> sources, int 
     
     vector<int> answer;
     for(int n : sources)
-    {
-        cout<<dist[n]<<endl;
         answer.push_back(dist[n]);
-    }
     
     return answer;
 }
