@@ -15,7 +15,7 @@ void DFS(int from, int here)
     for (int i = 0; i < v[here].size(); i++) 
     {
         // 이전 노드(from)로 돌아가지 않아야 함
-        // DFS를 통해 무방향 탐색을 할경우 1 -> 2 -> 3 -> 2처럼 v[here][i] != from이 되는 경우가 있음
+        // DFS를 통해 무방향 탐색을 할경우 1 -> 2 -> 3 -> 2처럼 v[here][i] == from이 되는 경우가 있음
         if (v[here][i] != from) 
         {
             // 현재 위치에서 v[here][i]로 이동
