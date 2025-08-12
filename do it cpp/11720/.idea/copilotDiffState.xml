@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/main.cpp">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/main.cpp" />
+              <option name="originalContent" value="#include &lt;iostream&gt;&#10;#include &lt;vector&gt;&#10;&#10;using namespace std;&#10;&#10;int main()&#10;{&#10;    int N;&#10;    long long number;&#10;    int sum = 0;&#10;&#10;    cin&gt;&gt;N;&#10;    cin&gt;&gt;number;&#10;&#10;    for(int i=0; i &lt; N; i++)&#10;    {&#10;        int calc = number % pow(10, i + 1) / pow(10, i);&#10;        cout&lt;&lt;calc;&#10;        sum += calc;&#10;    }&#10;&#10;    cout&lt;&lt;endl&lt;&lt;sum;&#10;&#10;    return 0;&#10;}" />
+              <option name="updatedContent" value="#include &lt;iostream&gt;&#10;#include &lt;vector&gt;&#10;&#10;using namespace std;&#10;&#10;int main()&#10;{&#10;    int N;&#10;    long long number;&#10;    int sum = 0;&#10;&#10;    cin&gt;&gt;N;&#10;    cin&gt;&gt;number;&#10;&#10;    for(int i=0; i &lt; N; i++)&#10;    {&#10;        int calc = number % pow(10, i + 1) / pow(10, i);&#10;        cout&lt;&lt;calc;&#10;        sum += calc;&#10;    }&#10;&#10;    cout&lt;&lt;endl&lt;&lt;sum;&#10;&#10;    return 0;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
